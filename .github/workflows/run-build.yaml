@@ -5,7 +5,8 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: jpbarto/cicd-environ.cicd/.github/workflows/reuse-build.yaml
+    uses: jpbarto/cicd-environ.cicd/.github/workflows/reuse-build.yaml@main
     with:
       pow-value: 3
       deliver_snapshot: false
+    secrets: inherit
