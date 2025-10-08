@@ -1,0 +1,11 @@
+name: Trigger CICD Build Workflow
+
+on:
+  push
+
+jobs:
+  call-workflow-passing-data:
+    uses: jpbarto/cicd-environ.cicd/.github/workflows/reuse-build.yaml
+    with:
+      pow-value: 3
+      deliver_snapshot: false
