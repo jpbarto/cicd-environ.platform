@@ -1,10 +1,7 @@
 #!/bin/sh
 
-echo dump env vars...
-env
-
-echo using tofu...
-tofu --version
+echo using tofu version `tofu --version`
 
 cd terraform
+tofu init
 tofu plan
