@@ -10,3 +10,6 @@ destroy:
 
 cicd_build:
 	./cicd/build.sh
+
+cicd_deploy:
+	./cicd/deploy.sh
