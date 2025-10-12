@@ -65,6 +65,18 @@ module "eks" {
   tags = local.tags
 }
 
+output "eks_cluster_name" {
+  value = module.eks.cluster_name
+}
+
+output "eks_cluster_endpoint" {
+  value = module.eks.cluster_endpoint
+}
+
+output "eks_cluster_ca_certificate" {
+  value = module.eks.cluster_certificate_authority_data
+}
+
 resource "helm_release" "istio-base" {
   name             = "istio-base"
   repository       = "https://istio-release.storage.googleapis.com/charts"
@@ -97,17 +109,6 @@ resource "helm_release" "argocd" {
 }
 
 
-# resource "null_resource" "kubeconfig" {
-#   depends_on = [module.eks]
-#
-#   provisioner "local-exec" {
-#     command = "aws eks --region ${data.aws_region.current.name} update-kubeconfig --name ${module.eks.cluster_name}"
-#   }
-# }
-
-output "cluster_name" {
-  value = module.eks.cluster_name
-}
 
 output "database_subnets" {
   value = module.vpc.database_subnets
