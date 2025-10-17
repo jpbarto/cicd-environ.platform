@@ -15,3 +15,9 @@ variable "region" {
   type        = string
   default     = "us-east-1"
 }
+
+variable "cluster_size" {
+  description = "How many nodes to initially create in the EKS cluster"
+  type = number
+  default = 3
+}
